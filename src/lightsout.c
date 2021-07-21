@@ -14,8 +14,8 @@
 //I'm having a hard time trying to make this mutable in the pretty_print function.
 //For now, I will use a pointer to point at the 3 bytes.
 
-utf8char box_on = {0xe2,0x96,0xa0};
-utf8char box_off = {0xe2,0x96,0xa1};
+utf8char box_on = {0x00,0xe2,0x96,0xa0};
+utf8char box_off = {0x00,0xe2,0x96,0xa1};
 
 /**
 * Each row is a byte, and each binary digit represents whether it is on or off
@@ -25,7 +25,7 @@ utf8char box_off = {0xe2,0x96,0xa1};
 * So I am deciding that the max size is going to be an
 */
 
-char * pretty_print(char);
+void pretty_print(char);
 void print_board(char *);
 
 int main()
@@ -73,7 +73,7 @@ int main()
     * The number 7 on the expression defining shift_number is the index of the last column of the board. Therefore,
     * we can replace it using (ROWS-1)
     */
-    char shift_number = 7 - flip_column-3;
+    char shift_number = 7 - flip_column;
     char flip_number = 7; //0b111
     if(shift_number == -1)
     {
@@ -143,7 +143,7 @@ unsigned int * board_generator(unsigned char rows, unsigned char columns)
 */
 
 // Turns a row of binary into a string of on and off characters.
-char * pretty_print(char row)
+void pretty_print(char row)
 {
     for(char i = 0; i < 8; i++)
     {
@@ -151,8 +151,9 @@ char * pretty_print(char row)
         {
             printchar(box_on);
         } else {
-            printchar(box_off);
+            printchar(box_off);  
         }
+        //printf(" ");
     }
     printf("\n");
 }

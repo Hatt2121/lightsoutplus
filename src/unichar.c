@@ -8,6 +8,6 @@ void printchar(utf8char a)
 {
     for(short i = 0; i < 4; i++)
     {
-        printf("%c",a.hex[i]);
+        printf("%c%c",a.hex[i]);
     }
 }

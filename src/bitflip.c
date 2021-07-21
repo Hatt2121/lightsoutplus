@@ -19,7 +19,7 @@ int main()
 
     for(short i = 0; i < 4; i++)
     {
-        printf("%c",box_off.hex[i]);
+        printf("%c",box_on.hex[i]);
     }
 }
 /*
