@@ -6,19 +6,27 @@
 */
 
 int n_ones(int n);
-
-struct unichar {
-    char hex[3];
+struct utf8char {
+    char hex[4];
 };
 
-typedef struct unichar unichar;
+typedef struct utf8char utf8char;
 
 int main()
 {
-   unsigned char a = 255;
-   char b = (signed char) a;
-
-   printf("%d\n",b);
+    utf8char a = {0x00,0x00,0x00,0x61}; //wait, why can I do this, why isnt it a.hex?
+    utf8char box = {0xe2,0x96,0xa1};
+    utf8char box2 = {0xe2,0x96,0xa0};
+    for(int i = 0; i < 4; i++)
+    { 
+        printf("%c",box.hex[i]);
+    }
+    printf("\n");
+    for(int i = 0; i < 4; i++)
+    { 
+        printf("%c",box2.hex[i]);
+    }
+    printf("\n");
 }
 /*
 int n_ones(int n)
