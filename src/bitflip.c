@@ -14,19 +14,13 @@ typedef struct utf8char utf8char;
 
 int main()
 {
-    utf8char a = {0x00,0x00,0x00,0x61}; //wait, why can I do this, why isnt it a.hex?
-    utf8char box = {0xe2,0x96,0xa1};
-    utf8char box2 = {0xe2,0x96,0xa0};
-    for(int i = 0; i < 4; i++)
-    { 
-        printf("%c",box.hex[i]);
+    utf8char box_on = {0xe2,0x96,0xa0};
+    utf8char box_off = {0xe2,0x96,0xa1};
+
+    for(short i = 0; i < 4; i++)
+    {
+        printf("%c",box_off.hex[i]);
     }
-    printf("\n");
-    for(int i = 0; i < 4; i++)
-    { 
-        printf("%c",box2.hex[i]);
-    }
-    printf("\n");
 }
 /*
 int n_ones(int n)

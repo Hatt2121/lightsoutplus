@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <math.h>
+#include "unichar.c"
 
 #ifndef ROWS
 #define ROWS 8
@@ -13,13 +13,10 @@
 //Defines the character for on in utf-8 hex.
 //I'm having a hard time trying to make this mutable in the pretty_print function.
 //For now, I will use a pointer to point at the 3 bytes.
-#ifndef ON
-#define ON 0xe296a0
-#endif
 
-#ifndef OFF
-#define OFF 0xe296a0
-#endif
+utf8char box_on = {0xe2,0x96,0xa0};
+utf8char box_off = {0xe2,0x96,0xa1};
+
 /**
 * Each row is a byte, and each binary digit represents whether it is on or off
 * On - 1
@@ -28,9 +25,8 @@
 * So I am deciding that the max size is going to be an
 */
 
-//char n_ones(char n);
-//unsigned int * board_generator(unsigned char rows, unsigned char columns);
-char * pretty_print(char, char *, char *);
+char * pretty_print(char);
+void print_board(char *);
 
 int main()
 {
@@ -53,10 +49,7 @@ int main()
     rows[7] = 0b11111111;
     //This is the starting grid.
 
-    for(char i = 0; i < ROWS; i++)
-    {
-        printf("%x\n",rows[i]);
-    }
+    print_board(rows);
     //When flipping a 3 x 3 portion of the grid, what you are really doing is 
     //flipping the bits between 1 behind the center 1 in front of the center, in both columns and rows.
     //Telling the computer to go between rows is easy, but doing the actual bitwise operation is pretty hard.
@@ -80,7 +73,7 @@ int main()
     * The number 7 on the expression defining shift_number is the index of the last column of the board. Therefore,
     * we can replace it using (ROWS-1)
     */
-    char shift_number = 7 - flip_column - 1;
+    char shift_number = 7 - flip_column-3;
     char flip_number = 7; //0b111
     if(shift_number == -1)
     {
@@ -98,10 +91,7 @@ int main()
 
     printf("\n");
 
-    for(char i = 0; i < ROWS; i++)
-    {
-        printf("%x\n",rows[i]);
-    }
+    print_board(rows);
 
     /*
     *   Now we need to figure out how print out the numbers into something readable.
@@ -153,19 +143,25 @@ unsigned int * board_generator(unsigned char rows, unsigned char columns)
 */
 
 // Turns a row of binary into a string of on and off characters.
-char * pretty_print(char row, char * on, char * off)
+char * pretty_print(char row)
 {
-    unsigned char * output_string = (unsigned char *) calloc(3*sizeof(char),sizeof(char));
-    // Check if bit is on or off.
     for(char i = 0; i < 8; i++)
     {
-        if((row & (0b1 << i)) == 0b1)
+        if((row & (0b1 << i)) == (0b1<<i))
         {
-            //If bit is on
-            output_string[i]= on;
+            printchar(box_on);
         } else {
-
+            printchar(box_off);
         }
     }
+    printf("\n");
+}
 
+void print_board(char * rows)
+{
+    for(short i = 0; i < 8; i++)
+    {
+        pretty_print(*rows);
+        rows++;
+    }
 }
