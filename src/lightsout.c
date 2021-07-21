@@ -9,6 +9,17 @@
 #ifndef COLUMNS
 #define COLUMNS 8
 #endif
+
+//Defines the character for on in utf-8 hex.
+//I'm having a hard time trying to make this mutable in the pretty_print function.
+//For now, I will use a pointer to point at the 3 bytes.
+#ifndef ON
+#define ON 0xe296a0
+#endif
+
+#ifndef OFF
+#define OFF 0xe296a0
+#endif
 /**
 * Each row is a byte, and each binary digit represents whether it is on or off
 * On - 1
@@ -19,6 +30,7 @@
 
 //char n_ones(char n);
 //unsigned int * board_generator(unsigned char rows, unsigned char columns);
+char * pretty_print(char, char *, char *);
 
 int main()
 {
@@ -104,6 +116,7 @@ int main()
 }
 
 /*
+// This is used to make the numbers for the flipping area.
 char n_ones(char n)
 {
     //Returns a number that contains n ones. e.g. {111}_bin
@@ -138,3 +151,21 @@ unsigned int * board_generator(unsigned char rows, unsigned char columns)
     }
 }
 */
+
+// Turns a row of binary into a string of on and off characters.
+char * pretty_print(char row, char * on, char * off)
+{
+    unsigned char * output_string = (unsigned char *) calloc(3*sizeof(char),sizeof(char));
+    // Check if bit is on or off.
+    for(char i = 0; i < 8; i++)
+    {
+        if((row & (0b1 << i)) == 0b1)
+        {
+            //If bit is on
+            output_string[i]= on;
+        } else {
+
+        }
+    }
+
+}
