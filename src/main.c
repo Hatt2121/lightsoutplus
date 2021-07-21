@@ -26,7 +26,7 @@ int main()
     for(char i = 0; i < ROWS; i++) {
         rows[i] = (char) 0;
     } //turn the whole board off.
-
+    
     //I'll write a file reading portion later.
     rows[0] = 0b11111111;
     rows[1] = 0b10000001;
