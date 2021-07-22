@@ -13,7 +13,7 @@ This is an attempt to make lights out as close to hardware as possible, and to a
 
 ## Todo
 1. Make it work... like actually
-    1. Find a way to see the string as a string of unicode characters, not just strings of bits.
+    1. ~~Find a way to see the string as a string of unicode characters, not just strings of bits.~~
     2. Find a way to randomize the board (could be as simple as chosing a random number).
     3. Figure out how I want the player to interact with the game through a CLI.
     4. Figure out how I want the player to interact with the game through a GUI (optional).

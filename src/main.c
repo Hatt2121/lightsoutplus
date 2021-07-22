@@ -10,9 +10,17 @@
 #define COLUMNS 8
 #endif
 
-utf8char box_on = {0x00,0xe2,0x96,0xa0};
-utf8char box_off = {0x00,0xe2,0x96,0xa1};
+#ifndef BOXON
+#define BOXON {0xe2,0x96,0xa0}
+#endif
 
+utf8char box_on = BOXON;
+
+#ifndef BOXOFF
+#define BOXOFF {0xe2,0x96,0xa1}
+#endif
+
+utf8char box_off = BOXOFF;
 
 void pretty_print(char);
 void print_board(char *);
@@ -26,10 +34,10 @@ int main()
     for(char i = 0; i < ROWS; i++) {
         rows[i] = (char) 0;
     } //turn the whole board off.
-    
+
     //I'll write a file reading portion later.
-    rows[0] = 0b11111111;
-    rows[1] = 0b10000001;
+    rows[0] = 0xff;
+    rows[1] = 0x81;
     rows[2] = 0b10000001;
     rows[3] = 0b10000001;
     rows[4] = 0b10000001;
