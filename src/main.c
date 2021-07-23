@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "unichar.c"
+#include "unichar.h"
 
 #ifndef ROWS
 #define ROWS 8
@@ -38,12 +38,12 @@ int main()
     //I'll write a file reading portion later.
     rows[0] = 0xff;
     rows[1] = 0x81;
-    rows[2] = 0b10000001;
-    rows[3] = 0b10000001;
-    rows[4] = 0b10000001;
-    rows[5] = 0b10000001;
-    rows[6] = 0b10000001;
-    rows[7] = 0b11111111;
+    rows[2] = 0x81;
+    rows[3] = 0x81;
+    rows[4] = 0x81;
+    rows[5] = 0x81;
+    rows[6] = 0x81;
+    rows[7] = 0xff;
     //This is the starting grid.
 
     print_board(rows);
@@ -73,7 +73,7 @@ int main()
 // Turns a row of binary into a string of on and off characters.
 void pretty_print(char row)
 {
-    for(char i = 0; i < 8; i++)
+    for(short i = 0; i < 8; i++)
     {
         if((row & (0b1 << i)) == (0b1<<i))
         {

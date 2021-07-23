@@ -1,8 +1,8 @@
-struct utf8char {
-    char hex[4];
-};
+#include "unichar.h"
 
-typedef struct utf8char utf8char;
+struct utf8char {
+    unsigned char hex[4];
+};
 
 void printchar(utf8char a)
 {
@@ -10,4 +10,10 @@ void printchar(utf8char a)
     {
         printf("%c",a.hex[i]);
     }
+}
+
+char * tochars(utf8char a)
+{
+    unsigned char * ret = a.hex;
+    return ret;
 }
