@@ -15,4 +15,6 @@ unsigned char * append(utf8char,utf8char);
 
 unsigned char * appendToString(unsigned char *, utf8char);
 
+void printHexString(unsigned char * a);
+
 #endif

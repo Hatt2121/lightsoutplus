@@ -8,11 +8,6 @@ int main()
     utf8char a = {0xe2,0xac,0x86}; //UPWARDS BLACK ARROW
 
     unsigned char * b = utf8toString(g);
-    unsigned char * c = appendToString(b,a);
 
-    printf("%.8x\n",b);
-    printf("%.8x\n",c);
-    printf("\n");
-    printf("%s",b);
-    printf("%s",c);
+    printHexString(g.hex);
 }
