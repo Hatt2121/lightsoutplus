@@ -36,6 +36,7 @@ unsigned char * append(utf8char a, utf8char b)
         ret++;
     }
     
+    ret++;
     *ret = 0x00;
 
     ret = ret - new_size ;
@@ -60,6 +61,7 @@ unsigned char * appendToString(unsigned char * string, utf8char b)
         ret++;
     }
 
+    ret++;
     *ret = 0x00;
 
     ret = ret - new_size;

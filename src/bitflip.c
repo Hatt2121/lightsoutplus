@@ -7,7 +7,17 @@ int main()
     utf8char g = {0xf0,0x9f,0x98,0x80}; //GRINNING FACE emoji
     utf8char a = {0xe2,0xac,0x86}; //UPWARDS BLACK ARROW
 
-    unsigned char * b = utf8toString(g);
+    unsigned char * c = append(a,g);
 
-    printHexString(g.hex);
+    printf("\n");
+    printf("%s",c);
+    printf("\n");
+    
+    for(int i = 0; i < 8; i++)
+    {
+        printf("%x",c[i]);
+    }
+
+    printf("\n");
+    printHexString(c);
 }
