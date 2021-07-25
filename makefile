@@ -7,7 +7,7 @@ bitflip : bin/bitflip.o bin/unichar.o
 bin/bitflip.o : src/bitflip.c
 	gcc -c src/bitflip.c -o bin/bitflip.o
 
-bin/unichar.o : src/unichar.o
+bin/unichar.o : src/unichar.c
 	gcc -c src/unichar.c -o bin/unichar.o
 
 bin/main.o : src/main.c
