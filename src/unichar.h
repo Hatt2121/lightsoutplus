@@ -9,6 +9,8 @@ typedef struct utf8char utf8char;
 
 void printutf8char(utf8char);
 
+short utf8charlen(utf8char); //This number should be 4 or less.
+
 unsigned char * utf8toString(utf8char);
 
 unsigned char * append(utf8char,utf8char);

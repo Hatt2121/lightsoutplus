@@ -9,15 +9,6 @@ int main()
 
     unsigned char * c = append(a,g);
 
-    printf("\n");
     printf("%s",c);
-    printf("\n");
-    
-    for(int i = 0; i < 8; i++)
-    {
-        printf("%x",c[i]);
-    }
 
-    printf("\n");
-    printHexString(c);
 }
