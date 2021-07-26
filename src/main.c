@@ -22,6 +22,10 @@ utf8char box_on = BOXON;
 
 utf8char box_off = BOXOFF;
 
+utf8char new_line = {0x0a};
+
+utf8char space = {0x20};
+
 void pretty_print(char);
 void print_board(char *);
 
@@ -77,11 +81,11 @@ void pretty_print(char row)
     {
         if((row & (0b1 << i)) == (0b1<<i))
         {
-            printchar(box_on);
+            printutf8char(box_on);
         } else {
-            printchar(box_off);  
+            printutf8char(box_off);  
         }
-        //printf(" ");
+        printf(" ");
     }
     printf("\n");
 }

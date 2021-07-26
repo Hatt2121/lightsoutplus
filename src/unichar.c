@@ -49,13 +49,13 @@ unsigned char * append(utf8char a, utf8char b)
     short new_size = utf8charlen(a)+utf8charlen(b) +1;
     unsigned char * ret = (unsigned char *) calloc(new_size,sizeof(unsigned char));
 
-    for(int i = 0; i < utf8charlen(a); i++)
+    for(short i = 0; i < utf8charlen(a); i++)
     {
         * ret = a.hex[i];
         ret++;
     }
 
-    for(int i = 0; i < utf8charlen(b); i++)
+    for(short i = 0; i < utf8charlen(b); i++)
     {
         * ret = b.hex[i];
         ret++;
@@ -73,14 +73,13 @@ unsigned char * appendToString(unsigned char * string, utf8char b)
     int new_size = strlen(string)+ utf8charlen(b)+1;
     unsigned char * ret = (unsigned char *) calloc(new_size,sizeof(unsigned char));
 
-    for(int i = 0; i < strlen(string); i ++)
+    for(short i = 0; i < strlen(string); i ++)
     {
-        * ret = * string;
+        * ret =  string[i];
         ret++;
-        string++;
     }
 
-    for(int i = 0; i < utf8charlen(b); i++)
+    for(short i = 0; i < utf8charlen(b); i++)
     {
         * ret = b.hex[i];
         ret++;
@@ -93,7 +92,16 @@ unsigned char * appendToString(unsigned char * string, utf8char b)
     return ret;
 }
 
+//Instead of returning the value, it appends  a to'string'
+//and modifies it instead of returning it.
+//Sadly you need to point to the string itself, but, its fine.
+void modifyToString(unsigned char ** string_pointer, utf8char a) {
+    * string_pointer = appendToString(*string_pointer, a);
+}
+
 //For debug puposes only.
+//Prints out the hex values of a string, including the 00.
+//Stops when it sees 0x00.
 void printHexString(unsigned char * a)
 {
     unsigned char value = * a;
