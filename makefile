@@ -1,5 +1,5 @@
-main : bin/main.o bin/unichar.o
-	gcc bin/main.o bin/unichar.o -o main
+main : bin/main.o bin/unichar.o bin/board.o
+	gcc bin/main.o bin/unichar.o bin/board.o -o main
 
 bitflip : bin/bitflip.o bin/unichar.o
 	gcc bin/bitflip.o bin/unichar.o -o bitflip
@@ -12,3 +12,6 @@ bin/unichar.o : src/unichar.c
 
 bin/main.o : src/main.c
 	gcc -c src/main.c -o bin/main.o
+
+bin/board.o : src/board.c
+	gcc -c src/board.c -o bin/board.o

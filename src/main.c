@@ -1,33 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "unichar.h"
-
-#ifndef ROWS
-#define ROWS 8
-#endif
-
-#ifndef COLUMNS
-#define COLUMNS 8
-#endif
-
-#ifndef BOXON
-#define BOXON {0xe2,0x96,0xa0}
-#endif
+#include "board.h"
 
 utf8char box_on = BOXON;
 
-#ifndef BOXOFF
-#define BOXOFF {0xe2,0x96,0xa1}
-#endif
-
 utf8char box_off = BOXOFF;
-
-utf8char new_line = {0x0a};
-
-utf8char space = {0x20};
-
-void pretty_print(char);
-void print_board(char *);
 
 int main()
 {

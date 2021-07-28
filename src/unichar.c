@@ -95,7 +95,7 @@ unsigned char * appendToString(unsigned char * string, utf8char b)
 //Instead of returning the value, it appends  a to'string'
 //and modifies it instead of returning it.
 //Sadly you need to point to the string itself, but, its fine.
-void modifyToString(unsigned char ** string_pointer, utf8char a) {
+void modify_append_utf8(unsigned char ** string_pointer, utf8char a) {
     * string_pointer = appendToString(*string_pointer, a);
 }
 

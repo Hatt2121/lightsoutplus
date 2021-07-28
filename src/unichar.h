@@ -17,6 +17,7 @@ unsigned char * append(utf8char,utf8char);
 
 unsigned char * appendToString(unsigned char *, utf8char);
 
+//Adds utf8character to a string that is being pointed at.
 void modify_append_utf8(unsigned char **, utf8char);
 
 void printHexString(unsigned char * a);
