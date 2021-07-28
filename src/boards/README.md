@@ -12,20 +12,20 @@ lower level concepts like this.
 Reading a file in C shouldn't be that hard... right?
 
 
-boards
-|
-|/core_boards                #I am going to make this one.
-|   |
-|   | 3x3.boa
-|   | 5x5.boa
-|   | 4x4.boa
-|   | etc.
-|
-|/more_boards               #A folder that someone could easily copy.
-|   |
-|   | 3x3.boa
-|   | 15x15.boa
-|   | etc.
+    boards
+    |
+    |/core_boards                #I am going to make this one.
+    |   |
+    |   | 3x3.boa
+    |   | 5x5.boa
+    |   | 4x4.boa
+    |   | etc.
+    |
+    |/more_boards               #A folder that someone could easily copy.
+    |   |
+    |   | 3x3.boa
+    |   | 15x15.boa
+    |   | etc.
 
 Inside folders that are inside this directory are going to contain .boa files (that's
 what I am going to be calling them for the time being) that are just going to have a
