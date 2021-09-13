@@ -11,6 +11,9 @@ lower level concepts like this.
 
 Reading a file in C shouldn't be that hard... right?
 
+This folder should really be outside the src folder just to make suere people are 
+comfortable editing it.
+
 
     boards
     |

@@ -51,28 +51,3 @@ int main()
    free(rows);
    return 1;
 }
-
-// Turns a row of binary into a string of on and off characters.
-void pretty_print(char row)
-{
-    for(short i = 0; i < 8; i++)
-    {
-        if((row & (0b1 << i)) == (0b1<<i))
-        {
-            printutf8char(box_on);
-        } else {
-            printutf8char(box_off);  
-        }
-        printf(" ");
-    }
-    printf("\n");
-}
-
-void print_board(char * rows)
-{
-    for(short i = 0; i < 8; i++)
-    {
-        pretty_print(*rows);
-        rows++;
-    }
-}
