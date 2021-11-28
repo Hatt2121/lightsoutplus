@@ -1,4 +1,5 @@
 #include "board.h"
+#include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
 
@@ -29,19 +30,27 @@ void print_board(char * rows)
         pretty_print(*rows);
         rows++;
     }
+    //I have to rewrite this whole part because I can't always
+    //just print out 8 rows. Boards are meant to be different sizes.
 }
 
 unsigned char * rand_board_gen(short columns, short rows)
 {
     unsigned char * ret = (unsigned char *) calloc(ROWS,sizeof(char));
+    srand(time(NULL));
     for(int x = 0; x < ROWS; x++)
     {
         ret[x] = randchar();
     }
+    return ret;
 }
 
 unsigned char randchar()
-{
-    srand(time(NULL));
+{   
     return ((unsigned char) rand() % 255);
+}
+
+unsigned char * board_string(unsigned char * rows)
+{
+    
 }

@@ -3,6 +3,12 @@
 #include <stdlib.h>
 #include <string.h>
 
+/**
+ * So I figured out why some shit is weird; it turns
+ * out that a string ends almost always with '\0'.
+ * I wish I knew that earlier. Did I know this earlier?
+ */
+
 void printutf8char(utf8char a)
 {
     for(short i = 0; i < 4; i++)
@@ -38,8 +44,9 @@ short utf8charlen(utf8char a)
     return ret;
 }
 
-//This guys use is somewhat unknown, 
-//All I really want is to 
+/**
+ *  returns a standard string of characters ends with \0
+ */
 unsigned char * append(utf8char a, utf8char b)
 {
     //We know that these types are both 4 characters wide (or less)

@@ -16,6 +16,7 @@ This is an attempt to make lights out as close to hardware as possible, and to a
     1. ~~Find a way to see the string as a string of unicode characters, not just strings of bits.~~
     2. ~~Find a way to randomize the board (could be as simple as chosing a random number).~~ {haven't tested the randomization with boards yet, but got enough
     of the basics}.
+        1. Clean Up the code
     3. Figure out how I want the player to interact with the game through a CLI.
     4. Figure out how I want the player to interact with the game through a GUI (optional).
     5. Implement turn counts and add difficulty. (Difficulty comes with limiting the player... wait... does it?)

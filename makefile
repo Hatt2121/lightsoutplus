@@ -4,6 +4,9 @@ main : bin/main.o bin/unichar.o bin/board.o
 bitflip : bin/bitflip.o bin/unichar.o
 	gcc bin/bitflip.o bin/unichar.o -o bitflip
 
+ra_test : bin/ra_test.o bin/board.o bin/unichar.o
+	gcc bin/ra_test.o bin/board.o bin/unichar.o -o ra_test
+
 bin/bitflip.o : src/bitflip.c
 	gcc -c src/bitflip.c -o bin/bitflip.o
 
@@ -15,3 +18,6 @@ bin/main.o : src/main.c
 
 bin/board.o : src/board.c
 	gcc -c src/board.c -o bin/board.o
+
+bin/ra_test.o : src/ra_test.c
+	gcc -c src/ra_test.c -o bin/ra_test.o

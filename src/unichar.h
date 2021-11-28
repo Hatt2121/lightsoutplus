@@ -7,6 +7,9 @@ struct utf8char {
 
 typedef struct utf8char utf8char;
 
+//Is this even necessary?
+typedef utf8char * utf8string;
+
 void printutf8char(utf8char);
 
 short utf8charlen(utf8char); //This number should be 4 or less.
